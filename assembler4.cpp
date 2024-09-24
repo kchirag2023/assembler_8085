@@ -11,7 +11,7 @@ using namespace std;
 map<string, int> symbolTable;
 map<string, int> instruction;
 vector<string> program;
-int codeAddress = 2000;  // Current code address
+int codeAddress = 2000; 
 
 void initializeInstructions() {
     instruction["MVI A"] = 0x3E;
@@ -156,7 +156,7 @@ void secondPass() {
 
         
         string trimmedLine = line;
-        // trimmedLine.erase(remove(trimmedLine.begin(), trimmedLine.end(), ' '), trimmedLine.end());
+      
 
         // Handle labels
         if (trimmedLine[0] == '#') {
@@ -182,7 +182,7 @@ void secondPass() {
             instructionName = line.substr(0, spacePos);
             operand = line.substr(spacePos + 1);
         } else {
-            instructionName = line; // No space or comma, the whole line is an instruction
+            instructionName = line; 
         }
 
         // cout<<endl<<"i : "<<instructionName<<" , "<<operand<<endl;
@@ -197,7 +197,7 @@ void secondPass() {
             continue;
         }
 
-        cout << instruction[instructionName] << endl; // Print opcode
+        cout <<std::hex<< instruction[instructionName] << endl; // Print opcode
 
         // Trim operand spaces
         operand.erase(remove(operand.begin(), operand.end(), ' '), operand.end());
